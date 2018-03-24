@@ -1,0 +1,27 @@
+version: '3'
+services:
+    helpjuice_app:
+        container_name: helpjuice_app
+        networks:
+            - production-network
+        build:
+            context: .
+        depends_on:
+            - "db"
+        links:
+            - "db"
+
+    db:
+        container_name: db
+        networks:
+            - production-network
+        image: postgres:10.3
+        restart: always
+        ports:
+            - "5432:5432"
+        volumes:
+          - ./tmp/db:/var/lib/postgresql/data
+
+networks:
+    production-network:
+        driver: bridge
