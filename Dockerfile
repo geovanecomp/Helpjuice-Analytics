@@ -4,7 +4,7 @@ MAINTAINER Geovane Pacheco <geovane.pacheco99@gmail.com>
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    build-essential postgresql-client libpq-dev nodejs \
+    build-essential vim postgresql-dev postgresql-client libpq-dev nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
@@ -16,9 +16,5 @@ COPY Gemfile.lock .
 RUN bundle install
 
 COPY . .
-
-# ENV PATH $PATH:/usr/lib/pgsql/bin
-#
-# ENV PATH $PATH:/usr/lib/postgresql/10/bin
 
 EXPOSE 3000

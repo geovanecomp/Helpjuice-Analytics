@@ -4,8 +4,7 @@ services:
         container_name: helpjuice_app
         networks:
             - production-network
-        build:
-            context: .
+        build: .
         depends_on:
             - "db"
         links:
