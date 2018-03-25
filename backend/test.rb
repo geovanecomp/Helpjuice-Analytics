@@ -1,3 +1,0 @@
-puts 'cu'
-asas
-asxxxx
